@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Streamlit local credentials & cache
+.streamlit/secrets.toml
+
+# Environment variables
+.env
+.env.local
+
+# Exported report files
+*.csv
+!tests/*.csv
