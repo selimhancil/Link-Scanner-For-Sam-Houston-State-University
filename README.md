@@ -30,6 +30,27 @@
 
 ---
 
+## 🎯 The Core Mission: Why We Built This
+
+> *"Where did that broken link come from? Which subpage was it on? Did anyone remember to update the financial aid link in the footer?"*
+
+University and college portals are vast, sprawling digital campuses consisting of hundreds of departmental sites, academic catalogs, admission guides, and student portals. In an ecosystem this large:
+
+- **Dead Links Slip Through the Cracks:** Content managers and faculty regularly update announcements and course pages, but old, decommissioned links remain buried deep within submenus or footers without anyone realizing it.
+- **Manual Checking is Painful & Impossible:** Manually clicking through thousands of links across dozens of departments takes days of tedious effort and is inherently prone to human oversight.
+- **Degraded Student Experience & Damaged Trust:** When prospective applicants, current students, or researchers hit a `404 Not Found` wall during course registration or enrollment deadlines, it creates immediate frustration and damages the institution's professional reputation and search engine ranking (SEO).
+
+### 💡 The Solution & Key Advantages
+
+**EduLink Inspector** solves this by automating the entire discovery and verification process:
+
+- ⏱️ **Massive Time Savings:** Turns hours or days of painful manual spot-checking into an automated audit completed in **under 2 minutes**.
+- 🎓 **Frictionless User Experience (UX):** Guarantees that students, faculty, and site visitors never get stuck on dead ends.
+- 📍 **Pins Exact Locations:** Doesn't just report that a link is broken; tells you **which exact page hosts it**, its anchor text, and how many times it repeats.
+- 📊 **Instant Executive Action:** Delivers a clear health score and one-click Excel-compatible CSV reports ready to assign to IT and webmaster teams.
+
+---
+
 ## 🏗️ Audit Pipeline & Architecture
 
 EduLink Inspector uses a specialized 4-stage pipeline engineered to handle large institutional websites without triggering bot defenses or reporting noisy false errors.

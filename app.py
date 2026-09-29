@@ -140,8 +140,8 @@ st.markdown(
         <div class="brand-badge">EduLink Inspector · Web Health</div>
         <h1 class="app-title">University Broken Link Auditor</h1>
         <p class="app-subtitle">
-            Crawl and audit university web portals to identify 404 (Not Found) errors, unreachable resources,
-            and broken links. Social media platforms and bot-protected third-party services are automatically filtered.
+            Audit entire campus web portals in minutes to uncover hidden 404 errors and forgotten dead links buried across deep subpages.
+            Eliminates hours of tedious manual audits, guarantees flawless student navigation, and automatically filters out noisy anti-bot false alarms.
         </p>
     </div>
     """,
