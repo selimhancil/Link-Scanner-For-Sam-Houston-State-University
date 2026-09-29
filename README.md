@@ -1,8 +1,8 @@
 <div align="center">
 
-![EduLink Inspector Banner](assets/banner.png)
+![CampusPulse Banner](assets/banner.png)
 
-# EduLink Inspector
+# CampusPulse
 ### University Broken Link & Web Health Auditor
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
@@ -25,7 +25,7 @@
 ## 📸 Preview
 
 <div align="center">
-  <img src="assets/screenshot.png" alt="EduLink Inspector Dashboard" width="920" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" />
+  <img src="assets/screenshot.png" alt="CampusPulse Dashboard" width="920" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" />
 </div>
 
 ---
@@ -42,7 +42,7 @@ University and college portals are vast, sprawling digital campuses consisting o
 
 ### 💡 The Solution & Key Advantages
 
-**EduLink Inspector** solves this by automating the entire discovery and verification process:
+**CampusPulse** solves this by automating the entire discovery and verification process:
 
 - ⏱️ **Massive Time Savings:** Turns hours or days of painful manual spot-checking into an automated audit completed in **under 2 minutes**.
 - 🎓 **Frictionless User Experience (UX):** Guarantees that students, faculty, and site visitors never get stuck on dead ends.
@@ -53,10 +53,10 @@ University and college portals are vast, sprawling digital campuses consisting o
 
 ## 🏗️ Audit Pipeline & Architecture
 
-EduLink Inspector uses a specialized 4-stage pipeline engineered to handle large institutional websites without triggering bot defenses or reporting noisy false errors.
+CampusPulse uses a specialized 4-stage pipeline engineered to handle large institutional websites without triggering bot defenses or reporting noisy false errors.
 
 <div align="center">
-  <img src="assets/workflow.png" alt="EduLink Inspector Pipeline & Workflow" width="920" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" />
+  <img src="assets/workflow.png" alt="CampusPulse Pipeline & Workflow" width="920" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" />
 </div>
 
 ### The 4-Phase Pipeline Breakdown
@@ -68,7 +68,7 @@ EduLink Inspector uses a specialized 4-stage pipeline engineered to handle large
 
 2. **🛡️ Smart Anti-Bot Noise Filter:**
    - Social media profiles (`Facebook`, `Instagram`, `LinkedIn`, `X / Twitter`, `YouTube`) commonly placed in headers and footers employ anti-scraping firewalls (`HTTP 403 Forbidden`, `HTTP 429 Too Many Requests`).
-   - EduLink Inspector recognizes these platforms and excludes them from false broken reports, eliminating up to **95% of junk errors**.
+   - CampusPulse recognizes these platforms and excludes them from false broken reports, eliminating up to **95% of junk errors**.
 
 3. **⚡ Dual-Phase Request Validator (HEAD + GET):**
    - Probes links first with lightweight HTTP `HEAD` requests for speed.
@@ -82,7 +82,7 @@ EduLink Inspector uses a specialized 4-stage pipeline engineered to handle large
 
 ## 📊 Real-World Audit Benchmark (Case Study)
 
-Below is an empirical benchmark executed against **Sam Houston State University (`shsu.edu`)** using EduLink Inspector's standard profile:
+Below is an empirical benchmark executed against **Sam Houston State University (`shsu.edu`)** using CampusPulse's standard profile:
 
 | Metric | Benchmark Measurement | Institutional Significance |
 | :--- | :---: | :--- |
@@ -97,7 +97,7 @@ Below is an empirical benchmark executed against **Sam Houston State University 
 
 ## 📐 Institutional Link Health Score Formula
 
-EduLink Inspector evaluates web health through an objective, quantitative scoring model:
+CampusPulse evaluates web health through an objective, quantitative scoring model:
 
 $$\text{Link Health Score (\%)} = \left( 1 - \frac{\text{Unique Broken Links}}{\max(\text{Total Unique Links Audited}, 1)} \right) \times 100$$
 
@@ -125,9 +125,9 @@ $$\text{Link Health Score (\%)} = \left( 1 - \frac{\text{Unique Broken Links}}{\
 
 ---
 
-## ⚖️ Why EduLink Inspector?
+## ⚖️ Why CampusPulse?
 
-| Capability | Standard Python Script | Screaming Frog (Free) | Generic Link Checker | **EduLink Inspector** |
+| Capability | Standard Python Script | Screaming Frog (Free) | Generic Link Checker | **CampusPulse** |
 | :--- | :---: | :---: | :---: | :---: |
 | **Zero-Setup Web Interface** | ❌ (CLI Only) | ⚠️ Desktop App | ⚠️ Clunky Interface | ✅ **Modern Streamlit Dashboard** |
 | **Academic Subdomain Support** | ❌ | ⚠️ Manual Config | ❌ Excluded | ✅ **Native (`*.edu`) Subdomain Discovery** |
