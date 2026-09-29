@@ -272,7 +272,7 @@ st.markdown(
         <div class="brand-group">
             <div class="brand-logo">⚡</div>
             <div class="brand-name">CampusPulse</div>
-            <div class="brand-pill">Link Health Engine</div>
+            <div class="brand-pill">SHSU Edition · Link Health</div>
         </div>
         <div class="nav-status">
             <div class="status-dot"></div>
@@ -289,8 +289,8 @@ st.markdown(
     <div class="hero-container">
         <h1 class="hero-headline">Audit Your Campus Web.<br>Catch Broken Links in Minutes.</h1>
         <p class="hero-sub">
-            University websites lose track of dead links buried across deep departmental subpages.
-            CampusPulse crawls your academic portal at lightning speed, discards bot false-alarms,
+            Sam Houston State University web portals lose track of dead links buried across deep departmental subpages.
+            CampusPulse crawls the SHSU ecosystem at lightning speed, discards bot false-alarms,
             and pinpoints every hidden 404 error to protect student experience.
         </p>
     </div>
@@ -298,25 +298,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# 3. Main Search Form & Presets
-# Initialize session state for target url if not present
+# 3. Main Search Form
 if "input_url" not in st.session_state:
     st.session_state.input_url = "https://www.shsu.edu"
-
-# Quick preset selector pills
-chip_col1, chip_col2, chip_col3, chip_col4, chip_space = st.columns([1.5, 1.2, 1.1, 1.1, 3.1])
-with chip_col1:
-    if st.button("🐾 SHSU (shsu.edu)", use_container_width=True):
-        st.session_state.input_url = "https://www.shsu.edu"
-with chip_col2:
-    if st.button("🏛️ Harvard", use_container_width=True):
-        st.session_state.input_url = "https://www.harvard.edu"
-with chip_col3:
-    if st.button("⚡ MIT", use_container_width=True):
-        st.session_state.input_url = "https://www.mit.edu"
-with chip_col4:
-    if st.button("🎓 ITU", use_container_width=True):
-        st.session_state.input_url = "https://www.itu.edu.tr"
 
 with st.form("audit_form", clear_on_submit=False):
     search_col, action_col = st.columns([5, 1.3])
@@ -324,7 +308,7 @@ with st.form("audit_form", clear_on_submit=False):
         target_url = st.text_input(
             "Target University URL",
             value=st.session_state.input_url,
-            placeholder="https://www.shsu.edu or https://www.your-university.edu",
+            placeholder="https://www.shsu.edu",
             label_visibility="collapsed"
         )
     with action_col:
