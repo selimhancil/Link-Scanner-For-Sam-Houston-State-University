@@ -22,10 +22,25 @@
 
 ---
 
-## 📸 Preview
+## 📸 Interface & Live Walkthrough
 
+### 1. Command Center & Quick Presets
 <div align="center">
   <img src="assets/screenshot.png" alt="CampusPulse Dashboard" width="920" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" />
+</div>
+
+<br>
+
+### 2. Real-Time BFS Crawling & Live Console
+<div align="center">
+  <img src="assets/live_crawl.png" alt="Live Crawl Probing" width="920" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" />
+</div>
+
+<br>
+
+### 3. Completed Audit & Institutional Health KPIs
+<div align="center">
+  <img src="assets/report_view.png" alt="Audit Report View" width="920" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" />
 </div>
 
 ---

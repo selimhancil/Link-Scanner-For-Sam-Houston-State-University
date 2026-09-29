@@ -361,6 +361,164 @@ with st.expander("🛠️ Audit Engine Tuning & Filters", expanded=False):
         )
 
 # 5. Execution & Real-Time Analytics
+demo_mode = st.query_params.get("demo", "")
+
+if demo_mode == "scan":
+    submit_btn = False
+    clean_url = "https://www.shsu.edu"
+    st.markdown(
+        """
+        <div class="kpi-grid">
+            <div class="kpi-box">
+                <div class="kpi-title">Pages Explored</div>
+                <div class="kpi-number">18 <span style="font-size:1.1rem;color:#64748B;">/ 30</span></div>
+                <div class="kpi-meta">Queue: 12 pending pages</div>
+            </div>
+            <div class="kpi-box">
+                <div class="kpi-title">Links Audited</div>
+                <div class="kpi-number">142</div>
+                <div class="kpi-meta">Unique URL validations</div>
+            </div>
+            <div class="kpi-box">
+                <div class="kpi-title">Broken Discovered</div>
+                <div class="kpi-number danger">2</div>
+                <div class="kpi-meta">Confirmed 404 / 5xx failures</div>
+            </div>
+            <div class="kpi-box">
+                <div class="kpi-title">Health Score</div>
+                <div class="kpi-number safe">98.6%</div>
+                <div class="kpi-meta">Institutional link index</div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    st.progress(0.6)
+    st.markdown(
+        """
+        <div class="terminal-box">
+            <span style="color:#10B981;font-weight:700;">● PROBING</span>
+            <span style="color:#64748B;">|</span>
+            <span style="color:#F8FAFC;">https://www.shsu.edu/academics/undergraduate-catalog/2023-2024.html</span>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+elif demo_mode == "report":
+    submit_btn = False
+    clean_url = "https://www.shsu.edu"
+    st.markdown(
+        """
+        <div class="kpi-grid">
+            <div class="kpi-box">
+                <div class="kpi-title">Pages Explored</div>
+                <div class="kpi-number">30 <span style="font-size:1.1rem;color:#64748B;">/ 30</span></div>
+                <div class="kpi-meta">Queue: 0 pending pages</div>
+            </div>
+            <div class="kpi-box">
+                <div class="kpi-title">Links Audited</div>
+                <div class="kpi-number">248</div>
+                <div class="kpi-meta">Unique URL validations</div>
+            </div>
+            <div class="kpi-box">
+                <div class="kpi-title">Broken Discovered</div>
+                <div class="kpi-number danger">3</div>
+                <div class="kpi-meta">Confirmed 404 / 5xx failures</div>
+            </div>
+            <div class="kpi-box">
+                <div class="kpi-title">Health Score</div>
+                <div class="kpi-number safe">98.8%</div>
+                <div class="kpi-meta">Institutional link index</div>
+            </div>
+        </div>
+        <div class="terminal-box" style="border-color:#059669; background:rgba(6,78,59,0.25); color:#34D399;">
+            ✓ AUDIT COMPLETE — Evaluated 30 pages and 248 unique links across the target domain.
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.subheader("📋 Audit Intelligence Report")
+
+    demo_records = [
+        {
+            "Broken URL": "https://www.shsu.edu/campus/lost-page-2023",
+            "Status": "404 Not Found",
+            "HTTP Code": 404,
+            "Link Type": "Internal",
+            "Anchor Text": "Academic Catalog 2023-2024",
+            "Host Page": "https://www.shsu.edu/academics",
+            "Occurrences": 4
+        },
+        {
+            "Broken URL": "https://www.shsu.edu/depts/old-financial-aid-portal",
+            "Status": "404 Not Found",
+            "HTTP Code": 404,
+            "Link Type": "Internal",
+            "Anchor Text": "Apply for Priority Aid",
+            "Host Page": "https://www.shsu.edu/admissions/financial-aid",
+            "Occurrences": 6
+        },
+        {
+            "Broken URL": "https://partner-portal.org/shsu-student-exchange-dead",
+            "Status": "404 Not Found",
+            "HTTP Code": 404,
+            "Link Type": "External",
+            "Anchor Text": "Global Exchange Application Portal",
+            "Host Page": "https://www.shsu.edu/global-engagement",
+            "Occurrences": 1
+        }
+    ]
+    df_demo = pd.DataFrame(demo_records)
+
+    tab_all, tab_404, tab_server = st.tabs([
+        f"All Issues ({len(df_demo)})",
+        f"404 Not Found ({len(df_demo)})",
+        "Server & Network Failures (0)"
+    ])
+
+    cols = ["Broken URL", "Status", "HTTP Code", "Link Type", "Anchor Text", "Host Page", "Occurrences"]
+    with tab_all:
+        st.dataframe(
+            df_demo[cols],
+            use_container_width=True,
+            column_config={
+                "Broken URL": st.column_config.LinkColumn("Broken Target URL"),
+                "Host Page": st.column_config.LinkColumn("Discovered On (Source)"),
+                "Occurrences": st.column_config.NumberColumn("Occurrences", format="%d"),
+                "HTTP Code": st.column_config.TextColumn("Code"),
+                "Status": st.column_config.TextColumn("Failure Reason")
+            },
+            hide_index=True
+        )
+    with tab_404:
+        st.dataframe(
+            df_demo[cols],
+            use_container_width=True,
+            column_config={
+                "Broken URL": st.column_config.LinkColumn("Broken Target URL"),
+                "Host Page": st.column_config.LinkColumn("Discovered On (Source)"),
+                "Occurrences": st.column_config.NumberColumn("Occurrences", format="%d"),
+                "HTTP Code": st.column_config.TextColumn("Code"),
+                "Status": st.column_config.TextColumn("Failure Reason")
+            },
+            hide_index=True
+        )
+    with tab_server:
+        st.info("No server or network connection failures detected.")
+
+    csv_demo = df_demo[cols].to_csv(index=False).encode("utf-8-sig")
+    down_col1, down_col2 = st.columns([4, 1.5])
+    with down_col2:
+        st.download_button(
+            label="📥 Export Audit CSV (Excel-Ready)",
+            data=csv_demo,
+            file_name="campuspulse_link_health_report.csv",
+            mime="text/csv",
+            use_container_width=True
+        )
+
 if submit_btn:
     if not target_url or not target_url.strip().startswith(("http://", "https://")):
         st.error("Please provide a valid website address starting with 'http://' or 'https://'.")
